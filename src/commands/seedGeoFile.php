@@ -11,13 +11,15 @@ class seedGeoFile extends Command
     protected $description = 'Load + Parse + Save to DB a geodata file.';
 
     private $pdo;
+    private $geoItems;
 
     public function __construct() {
         parent::__construct();
         $this->pdo = \DB::connection()->getPdo(\PDO::FETCH_ASSOC);
         if (!\Schema::hasTable('geo'))
             return;
-
+        //Need memory handling, since allCountries is a larger file
+        ini_set('memory_limit', '-1');
         $this->geoItems = new geoCollection();
     }
 
@@ -109,7 +111,7 @@ class seedGeoFile extends Command
 
         // Build Tree
         $count = 0; $countOrphan = 0;
-        $sql = 'SELECT MAX(`right`) as maxRight FROM geo';
+        $sql = 'SELECT MAX(geo.right) as maxRight FROM geo';
         $result = $this->sql($sql);
         $maxBoundary = isset($result['maxRight']) ?  $result['maxRight']+1 : 0;
         foreach ($this->geoItems->items as $item) {

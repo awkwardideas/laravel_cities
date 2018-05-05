@@ -46,14 +46,14 @@ wget http://download.geonames.org/export/dump/hierarchy.zip && unzip hierarchy.z
 - Migrate and Seed. Run:
 
 ```
-artisan migrate
-artisan geo:seed
+php artisan migrate
+php artisan geo:seed
 ```
 
 Note: If you don't want all the countries, you can download only country specific files (eg US.txt) and import each one of them with:
 
 ```
-artisan geo:load US --append
+php artisan geo:seed US --append
 ```
 
 # Seed with custom data
@@ -61,7 +61,7 @@ artisan geo:load US --append
 Create a json file with custom data at `storage\geo` and run the following command to pick a file to seed:
 
 ```
-artisan geo:json
+php artisan geo:json
 ```
 
 If an item exists in the DB (based on the 'id' value), then it will be updated else a new entry will be inserted. For example the following json file will rename `United States` to `USA` and it will add a child item (set by the parent_id value)

@@ -27,12 +27,13 @@
         "symfony/console": "^3.2",
         "symfony/var-dumper": "^3.2",
         "monolog/monolog": "^1.22",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+		"awkwardideas/mypdo" : "dev-master"
     },     
     "autoload": {
         "psr-4" : {
-            "AwkwardIdeas\\LaravelCities\\"          : "src/",
-            "AwkwardIdeas\\LaravelCities\\Tests\\"   : "tests/"
+            "Igaster\\LaravelCities\\"          : "src/",
+            "Igaster\\LaravelCities\\Tests\\"   : "tests/"            
         }
     },
     "minimum-stability": "stable"

@@ -1,20 +1,26 @@
 <?php namespace AwkwardIdeas\LaravelCities\commands;
 
 use Illuminate\Console\Command;
-use AwkwardIdeas\LaravelCities\commands\helpers\geoItem;
 use AwkwardIdeas\LaravelCities\commands\helpers\geoCollection;
 use AwkwardIdeas\LaravelCities\Geo;
+use AwkwardIdeas\LaravelCities\commands\helpers\DB;
 
 class seedJsonFile extends Command
 {
     protected $signature = 'geo:json {file?}';
     protected $description = 'Load a json file.';
 
+    private $db;
     private $pdo;
 
     public function __construct() {
         parent::__construct();
+        //$this->db = new DB();
+
         $this->pdo = \DB::connection()->getPdo(\PDO::FETCH_ASSOC);
+        if (!\Schema::hasTable('geo'))
+            return;
+
         if (!\Schema::hasTable('geo'))
             return;
 
