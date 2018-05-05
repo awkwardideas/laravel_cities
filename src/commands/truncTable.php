@@ -1,4 +1,4 @@
-<?php namespace Igaster\LaravelCities\commands;
+<?php namespace AwkwardIdeas\LaravelCities\commands;
 
 use Illuminate\Console\Command;
 

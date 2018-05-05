@@ -1,4 +1,4 @@
-<?php namespace Igaster\LaravelCities\Tests\App;
+<?php namespace AwkwardIdeas\LaravelCities\Tests\App;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 

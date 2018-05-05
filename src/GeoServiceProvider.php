@@ -1,4 +1,4 @@
-<?php namespace Igaster\LaravelCities;
+<?php namespace AwkwardIdeas\LaravelCities;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -34,8 +34,8 @@ class GeoServiceProvider extends ServiceProvider
         // Register Commands
         if ($this->app->runningInConsole()) {
             $this->commands([
-                \Igaster\LaravelCities\commands\seedGeoFile::class,
-                \Igaster\LaravelCities\commands\seedJsonFile::class,
+                \AwkwardIdeas\LaravelCities\commands\seedGeoFile::class,
+                \AwkwardIdeas\LaravelCities\commands\seedJsonFile::class,
             ]);
         }
 

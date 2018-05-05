@@ -1,8 +1,8 @@
-<?php namespace Igaster\LaravelCities;
+<?php namespace AwkwardIdeas\LaravelCities;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Support\Facades\Route;
-use Igaster\LaravelCities\dbTree\EloquentTreeItem;
+use AwkwardIdeas\LaravelCities\dbTree\EloquentTreeItem;
 
 class Geo extends EloquentTreeItem {
 	protected $table = 'geo';
@@ -204,13 +204,13 @@ class Geo extends EloquentTreeItem {
 
     public static function ApiRoutes(){
         Route::group(['prefix' => 'geo'], function(){
-            Route::get('search/{name}/{parent_id?}',    '\Igaster\LaravelCities\GeoController@search');
-            Route::get('item/{id}',         '\Igaster\LaravelCities\GeoController@item');
-            Route::get('items/{ids}',       '\Igaster\LaravelCities\GeoController@items');
-            Route::get('children/{id}',     '\Igaster\LaravelCities\GeoController@children');
-            Route::get('parent/{id}',       '\Igaster\LaravelCities\GeoController@parent');
-            Route::get('country/{code}',    '\Igaster\LaravelCities\GeoController@country');
-            Route::get('countries',         '\Igaster\LaravelCities\GeoController@countries');
+            Route::get('search/{name}/{parent_id?}',    '\AwkwardIdeas\LaravelCities\GeoController@search');
+            Route::get('item/{id}',         '\AwkwardIdeas\LaravelCities\GeoController@item');
+            Route::get('items/{ids}',       '\AwkwardIdeas\LaravelCities\GeoController@items');
+            Route::get('children/{id}',     '\AwkwardIdeas\LaravelCities\GeoController@children');
+            Route::get('parent/{id}',       '\AwkwardIdeas\LaravelCities\GeoController@parent');
+            Route::get('country/{code}',    '\AwkwardIdeas\LaravelCities\GeoController@country');
+            Route::get('countries',         '\AwkwardIdeas\LaravelCities\GeoController@countries');
         });
     }
 

@@ -1,7 +1,7 @@
-<?php namespace Igaster\LaravelCities\dbTree;
+<?php namespace AwkwardIdeas\LaravelCities\dbTree;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
-use Igaster\LaravelCities\Geo;
+use AwkwardIdeas\LaravelCities\Geo;
 
 class EloquentTreeItem extends Eloquent {
 

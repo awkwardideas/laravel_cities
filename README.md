@@ -1,6 +1,8 @@
 [![Laravel](https://img.shields.io/badge/Laravel-5.x-orange.svg)](http://laravel.com)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](https://tldrlegal.com/license/mit-license)
 
+# Forked from [igaster/laravel_cities](https://github.com/igaster/laravel_cities)
+
 # Introduction
 
 What you get:
@@ -19,14 +21,14 @@ What you dont get:
 	
 - Install with copmoser. Run:
 
-`composer require igaster/laravel_cities`
+`composer require awkwardideas/laravel_cities`
 
 - Add Service Provider in app.php:
 
 ```php
 'providers' => [
     //...
-    Igaster\LaravelCities\GeoServiceProvider::class,
+    AwkwardIdeas\LaravelCities\GeoServiceProvider::class,
 ];
 ```
 
@@ -82,13 +84,13 @@ If an item exists in the DB (based on the 'id' value), then it will be updated e
 ```
 Please note that adding new items to the DB will reindex ALL items to rebuild the tree structure. Please be patient...
 
-An example file is provided: [countryNames.json](https://github.com/igaster/laravel_cities/blob/master/data/countryNames.json) which updates the official  country names with a most popular simplified version.
+An example file is provided: [countryNames.json](https://github.com/awkwardideas/laravel_cities/blob/master/data/countryNames.json) which updates the official  country names with a most popular simplified version.
 
 Tip: You can get a json representation from the DB by quering the API (see below)
 
 # Geo Model:
 
-You can use `Igaster\LaravelCities\Geo` Model to access the database. List of available properties:
+You can use `AwkwardIdeas\LaravelCities\Geo` Model to access the database. List of available properties:
 
 ```php
 $geo->name;       // name of geographical point in plain ascii
@@ -108,7 +110,7 @@ Visit http://www.geonames.org > Info, for a more detailed description.
 
 ## Searching:
 ```php
-use Igaster\LaravelCities\Geo;
+use AwkwardIdeas\LaravelCities\Geo;
 
 Geo::getCountries();               // Get a Collection of all countries
 Geo::getCountry('US');             // Get item by Country code
@@ -165,14 +167,14 @@ Geo::getCountry('GR')
 	->get();
 ```
 
-If you need more functionality you can extend `Igaster\LaravelCities\Geo` model and add your methods.
+If you need more functionality you can extend `AwkwardIdeas\LaravelCities\Geo` model and add your methods.
 
 # HTTP API
 
 This package defines some API routes that can be used to query the DB through simple HTTP requests. To use them insert in your routes file:
 
 ```php
-\Igaster\LaravelCities\Geo::ApiRoutes();
+\AwkwardIdeas\LaravelCities\Geo::ApiRoutes();
 ```
 
 For example if you insert them in your `routes\api.php` (recomended) then the following URLs will be registered:
@@ -200,7 +202,7 @@ To reduce bandwith, all Geo model attributes will be returned except from `alter
 
 # Vue Component
 
-A [Vue component](https://github.com/igaster/laravel_cities/blob/master/vue/geo-slect.vue) is shipped with this package that plugs into the provided API and provides an interactive way to pick a location through a series of steps. Sorry, no live demo yet, just some screenshots:
+A [Vue component](https://github.com/awkwardideas/laravel_cities/blob/master/vue/geo-slect.vue) is shipped with this package that plugs into the provided API and provides an interactive way to pick a location through a series of steps. Sorry, no live demo yet, just some screenshots:
 
 Step 1: Select your location. Drop down lists loads asynchronous:
 
@@ -222,11 +224,11 @@ Assuming that you are using Webpack to compile your assets, and you have include
 
 In your main vue-app.js file add the component declaration:
 
-`Vue.component('geo-select', require('RELATIVE_PATH_TO/vendor/igaster/laravel_cities/src/vue/geo-select.vue'));`
+`Vue.component('geo-select', require('RELATIVE_PATH_TO/vendor/awkwardideas/laravel_cities/src/vue/geo-select.vue'));`
 
 Alternative you may publish the component with
 
-`artisan vendor:publish --provider="Igaster\LaravelCities\GeoServiceProvider"`
+`artisan vendor:publish --provider="AwkwardIdeas\LaravelCities\GeoServiceProvider"`
 
 Component will be exported at `/resources/LaravelCities/geo-select.vue` so that you can make modifications...
 

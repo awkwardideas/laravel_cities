@@ -1,6 +1,6 @@
 <?php
 
-use Igaster\LaravelCities\Geo;
+use AwkwardIdeas\LaravelCities\Geo;
 
 class apiTest extends abstractTest
 {
@@ -15,7 +15,7 @@ class apiTest extends abstractTest
 
 		// Register Service providers
         return [
-            \Igaster\LaravelCities\geoServiceProvider::class,
+            \AwkwardIdeas\LaravelCities\geoServiceProvider::class,
         ];
     }
 

@@ -1,8 +1,8 @@
-<?php namespace Igaster\LaravelCities\commands;
+<?php namespace AwkwardIdeas\LaravelCities\commands;
 
 use Illuminate\Console\Command;
-use Igaster\LaravelCities\commands\helpers\geoItem;
-use Igaster\LaravelCities\commands\helpers\geoCollection;
+use AwkwardIdeas\LaravelCities\commands\helpers\geoItem;
+use AwkwardIdeas\LaravelCities\commands\helpers\geoCollection;
 
 
 class seedGeoFile extends Command

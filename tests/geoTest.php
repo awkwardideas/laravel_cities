@@ -1,6 +1,6 @@
 <?php
 
-use Igaster\LaravelCities\Geo;
+use AwkwardIdeas\LaravelCities\Geo;
 
 class geoTest extends abstractTest
 {
@@ -11,7 +11,7 @@ class geoTest extends abstractTest
 		$this->assertTrue(true);
 	}
 
-	//-- Test: is instance of \Igaster\LaravelCities\geo
+	//-- Test: is instance of \AwkwardIdeas\LaravelCities\geo
 	public function testModel(){
 		$model = Geo::create();
 		$this->reloadModel($model);
