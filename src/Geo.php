@@ -17,12 +17,10 @@ class Geo extends EloquentTreeItem {
 
 
     protected $casts = [
-        'alternames' => 'array',
     ];
 
     // Hide From JSON
     protected $hidden = [
-        'alternames',
         'left',
         'right',
         'depth',
@@ -102,7 +100,7 @@ class Geo extends EloquentTreeItem {
     //  Methods
     // ----------------------------------------------
 
-    // search in `name` and `alternames` / return collection
+    // search in `name` / return collection
     public static function searchNames($name, Geo $parent =null){
         $query = self::search($name)->orderBy('name', 'ASC');
 

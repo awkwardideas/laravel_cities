@@ -71,7 +71,7 @@ class GeoController extends \Illuminate\Routing\Controller {
 		return $this->applyFilter(Geo::level(Geo::LEVEL_COUNTRY)->get());
 	}
 
-	// [Collection] Search for %$name% in 'name' and 'alternames'. Optional filter to children of $parent_id
+	// [Collection] Search for %$name% in 'name'. Optional filter to children of $parent_id
 	public function search($name,$parent_id = null){
 		if ($parent_id)
 			return $this->applyFilter(Geo::searchNames($name, Geo::find($parent_id)));

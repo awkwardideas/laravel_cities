@@ -141,7 +141,7 @@ class seedGeoFile extends Command
 
         // Store Tree in DB
         $this->info("Writing in Database</info>");
-        $stmt = $this->pdo->prepare("INSERT INTO geo (`id`, `parent_id`, `left`, `right`, `depth`, `name`, `alternames`, `country`, `level`, `population`, `lat`, `long`) VALUES (:id, :parent_id, :left, :right, :depth, :name, :alternames, :country, :level, :population, :lat, :long)");
+        $stmt = $this->pdo->prepare("INSERT INTO geo (`id`, `parent_id`, `left`, `right`, `depth`, `name`, `alternames`, `country`, `level`, `lat`, `long`) VALUES (:id, :parent_id, :left, :right, :depth, :name, :alternames, :country, :level, :lat, :long)");
 
 
         $count = 0;
@@ -158,7 +158,6 @@ class seedGeoFile extends Command
                 ':alternames'   => $item->data[3],
                 ':country'      => $item->data[8],
                 ':level'        => $item->data[7],
-                ':population'   => $item->data[14],
                 ':lat'          => $item->data[4],
                 ':long'         => $item->data[5]
             ]) === false){

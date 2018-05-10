@@ -5,9 +5,8 @@
 
 # Introduction
 
-What you get:
-- Deploy and use geonames.org (ex MaxCDN) database localy to query countries/cities
-- Get information like lattitude/longtityde, population etc 
+- Deploy and use geonames.org (ex MaxCDN) database locally to query countries/cities
+- Includes latitude/longitude 
 - Optimized [DB tree structure](https://en.wikipedia.org/wiki/Nested_set_model) for searching and traversing the tree.
 - Provides an Eloquent model (geo) with multiple query-scopes to help you build your queries.
 - Exposes a simple API that you can use to create AJAX calls. (Eg search while typing etc).
@@ -75,8 +74,6 @@ If an item exists in the DB (based on the 'id' value), then it will be updated e
   {
     "name": "USA Child Item",
     "parent_id": 6252001,
-    "alternames": ["51st State", "dummy name"],
-    "population": 310232863,
     "lat": "39.760000",
     "long": "-98.500000"
   }
@@ -94,10 +91,8 @@ You can use `AwkwardIdeas\LaravelCities\Geo` Model to access the database. List 
 
 ```php
 $geo->name;       // name of geographical point in plain ascii
-$geo->alternames; // Array of alternate names (Stored as Json)
 $geo->country;    // 2-letter country code (ISO-3166)
 $geo->id;         // Original id from geonames.org database (geonameid)
-$geo->population; // Population (Where provided)
 $geo->lat;        // latitude in decimal degrees (wgs84)
 $geo->long;       // longitude in decimal degrees (wgs84)
 $geo->level;      // Administrator level code (feature code)
@@ -177,7 +172,7 @@ This package defines some API routes that can be used to query the DB through si
 \AwkwardIdeas\LaravelCities\Geo::ApiRoutes();
 ```
 
-For example if you insert them in your `routes\api.php` (recomended) then the following URLs will be registered:
+For example if you insert them in your `routes\api.php` (recommended) then the following URLs will be registered:
 
 
 | URL Endpoind (GET)                | Description                                               | Returns (JSON) |
@@ -231,6 +226,10 @@ Alternative you may publish the component with
 `artisan vendor:publish --provider="AwkwardIdeas\LaravelCities\GeoServiceProvider"`
 
 Component will be exported at `/resources/LaravelCities/geo-select.vue` so that you can make modifications...
+
+If you choose to do the exported component, make sure you register it in the vue-app.js file with
+
+`Vue.component('geo-select', require('RELATIVE_PATH_TO/resources/LaravelCities/geo-select.vue'));`
 
 ### Compile compoment
 
